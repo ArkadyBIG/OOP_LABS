@@ -1,0 +1,88 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="Knifes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Knife" type="knife" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="knife">
+        <xs:sequence>
+            <xs:element name="id" type="idType"/>
+            <xs:element name="type" type="knifeType"/>
+            <xs:element name="handy" type="handyType"/>
+            <xs:element name="origin" type="xs:string"/>
+            <xs:element name="visual" type="visualType"/>
+            <xs:element name="value" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="idType">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-9][0-9][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="knifeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="knife"/>
+            <xs:enumeration value="dagger"/>
+            <xs:enumeration value="saber"/>
+            <xs:enumeration value="sword"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="handyType">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[1-2]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="visualType">
+        <xs:sequence>
+            <xs:element name="blade_length_cm" type="lengthType"/>
+            <xs:element name="blade_width_mm" type="lengthType"/>
+            <xs:element name="blade_material" type="bladeMaterialType"/>
+            <xs:element name="handle_material" type="handleMaterialType"/>
+            <xs:element name="wood_type" type="woodType"/>
+            <xs:element name="bloodstream" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="lengthType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="bladeMaterialType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="steel"/>
+            <xs:enumeration value="iron"/>
+            <xs:enumeration value="cast_iron"/>
+            <xs:enumeration value="copper"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="handleMaterialType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="wood"/>
+            <xs:enumeration value="plastic"/>
+            <xs:enumeration value="metal"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="woodType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="oak"/>
+            <xs:enumeration value="pine"/>
+            <xs:enumeration value="maple"/>
+            <xs:enumeration value="mahogany"/>
+            <xs:enumeration value="spruce"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

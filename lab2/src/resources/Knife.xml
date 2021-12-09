@@ -1,0 +1,17 @@
+<Knifes>
+	<Knife>
+		<id>111</id>
+		<type>knife</type>
+		<handy>1</handy>
+		<origin>France</origin>
+		<visual>
+			<blade_length_cm>15</blade_length_cm>
+			<blade_width_mm>30</blade_width_mm>
+			<blade_material>steel</blade_material>
+			<handle_material>wood</handle_material>
+			<wood_type>spruce</wood_type>
+			<bloodstream>false</bloodstream>
+		</visual>
+		<value>true</value>
+	</Knife>
+</Knifes>
